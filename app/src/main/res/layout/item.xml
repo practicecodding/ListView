@@ -5,13 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:clickable="false"
     >
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:orientation="horizontal"
-        android:background="@drawable/custom_item"
+        android:background="#00BCD4"
         android:layout_margin="20dp"
         >
 
@@ -20,8 +21,10 @@
             android:id="@+id/imageView"
             android:layout_width="100dp"
             android:layout_height="match_parent"
-            android:layout_margin="10dp"
-            tools:srcCompat="@tools:sample/avatars" />
+            android:scaleType="fitXY"
+            android:layout_margin="5dp"
+            android:src="@drawable/hamidul"
+            />
 
         <LinearLayout
             android:layout_width="match_parent"

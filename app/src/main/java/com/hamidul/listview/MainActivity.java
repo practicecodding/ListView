@@ -8,7 +8,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     ListView listView;
@@ -22,15 +24,14 @@ public class MainActivity extends AppCompatActivity {
 
         listView.setAdapter(myAdapter);
 
-
-
     }
 
     private class MyAdapter extends BaseAdapter{
         LayoutInflater layoutInflater;
+        ImageView imageView;
         @Override
         public int getCount() {
-            return 5;
+            return 10;
         }
 
         @Override
@@ -49,9 +50,17 @@ public class MainActivity extends AppCompatActivity {
             layoutInflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             View myView =layoutInflater.inflate(R.layout.item,parent,false);
 
+            imageView = myView.findViewById(R.id.imageView);
+            int x = position+1;
+            imageView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(MainActivity.this, "Item Number : "+x, Toast.LENGTH_SHORT).show();
+                }
+            });
+
             return myView;
         }
     }
-
 
 }
