@@ -2,7 +2,9 @@ package com.hamidul.listview;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -25,10 +27,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private class MyAdapter extends BaseAdapter{
-
+        LayoutInflater layoutInflater;
         @Override
         public int getCount() {
-            return 0;
+            return 5;
         }
 
         @Override
@@ -43,7 +45,11 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
-            return null;
+
+            layoutInflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            View myView =layoutInflater.inflate(R.layout.item,parent,false);
+
+            return myView;
         }
     }
 
